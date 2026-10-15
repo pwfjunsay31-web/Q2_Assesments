@@ -4,7 +4,7 @@ print("=== Interdimensional Calculation Device ===")
 
 while True:
     print()
-    print("Welcome to IDMC V1.9.21")
+    print("Welcome to IDMC V2.1.21")
     print("1 - add")
     print("2 - subtract")
     print("3 - multiply")
@@ -17,8 +17,16 @@ while True:
         print("Kbai lol :)")
         break
 
-    num1 = float(input("first number: "))
-    num2 = float(input("second number: "))
+    if choice not in ("1", "2", "3", "4"):
+        print("I've never heard of")
+        continue
+
+    try:
+        num1 = float(input("first number: "))
+        num2 = float(input("second number: "))
+    except ValueError:
+        print("numbers only please")
+        continue
 
     if choice == "1":
         answer = num1 + num2
@@ -27,6 +35,9 @@ while True:
     elif choice == "3":
         answer = num1 * num2
     elif choice == "4":
+        if num2 == 0:
+            print("you can't divide by zero")
+            continue
         answer = num1 / num2
 
-    print("the answer will be like... " + str(answer) + "!!!")
+    print(f"the answer will be like... {answer}!!!")
